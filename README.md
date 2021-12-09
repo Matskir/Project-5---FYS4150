@@ -16,4 +16,4 @@ The python script read_plot_cube.py reads the data cube and makes all the necess
 python read_plot_cube.py
 
 
-The animations folder contains the animations of the probability function for the different potentials; no, single, double and triple slit. 
+The animations folder contains the animations of the probability function for the different potentials; no and double slit. 

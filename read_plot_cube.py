@@ -105,7 +105,6 @@ ax1.hlines(1,i_arr[0],i_arr[-1],color='k',linestyles='--')
 ax1.set_xlabel('Time [1]')
 ax1.set_ylabel('Total probability [1]')
 fig1.tight_layout()
-fig1.savefig('prob_no_slit.pdf')
 
 from sklearn import preprocessing
 
@@ -114,7 +113,6 @@ ax2.plot(y_points[1:-1],preprocessing.normalize([cub_arr[79,:,160]**2])[0])
 ax2.set_xlabel("y [1]")
 ax2.set_ylabel("Detection probability [1]")
 fig2.tight_layout()
-fig2.savefig("det_prob_triple_slit.pdf")
 
 fig3,ax3 = plt.subplots()
 img3 = ax3.imshow(z_data_list[0], extent=[x_min,x_max,y_min,y_max], cmap=plt.get_cmap("viridis"), norm=norm)
@@ -124,7 +122,6 @@ cbar3 = fig3.colorbar(img3, ax=ax3)
 cbar3.set_label("$\sqrt{p(x,y,t=0)}$", fontsize=fontsize)
 cbar3.ax.tick_params(labelsize=fontsize)
 fig3.tight_layout()
-fig3.savefig('map_t0.pdf')
 
 
 norm4 = matplotlib.cm.colors.Normalize(vmin=0.0, vmax=np.max(z_data_list[40]))
@@ -137,7 +134,6 @@ cbar4 = fig4.colorbar(img4, ax=ax4)
 cbar4.set_label("$\sqrt{p(x,y,,t=0.001)}$", fontsize=fontsize)
 cbar4.ax.tick_params(labelsize=fontsize)
 fig4.tight_layout()
-fig4.savefig('map_t001.pdf')
 
 norm5 = matplotlib.cm.colors.Normalize(vmin=0.0, vmax=np.max(z_data_list[79]))
 
@@ -149,7 +145,6 @@ cbar5 = fig5.colorbar(img5, ax=ax5)
 cbar5.set_label("$\sqrt{p(x,y,t=0.002)}$", fontsize=fontsize)
 cbar5.ax.tick_params(labelsize=fontsize)
 fig5.tight_layout()
-fig5.savefig('map_t002.pdf')
 
 norm6 = matplotlib.cm.colors.Normalize(vmin=0.0, vmax=np.max(im_cub_arr[0]))
 
@@ -161,7 +156,6 @@ cbar6 = fig6.colorbar(img6, ax=ax6)
 cbar6.set_label("Im{$u(x,y,t=0)$}", fontsize=fontsize)
 cbar6.ax.tick_params(labelsize=fontsize)
 fig6.tight_layout()
-fig6.savefig('map_imag_t0.pdf')
 
 norm7 = matplotlib.cm.colors.Normalize(vmin=0.0, vmax=np.max(im_cub_arr[40]))
 
@@ -173,7 +167,6 @@ cbar7 = fig7.colorbar(img7, ax=ax7)
 cbar7.set_label("Im{$u(x,y,t=0.001)$}", fontsize=fontsize)
 cbar7.ax.tick_params(labelsize=fontsize)
 fig7.tight_layout()
-fig7.savefig('map_imag_t001.pdf')
 
 norm8 = matplotlib.cm.colors.Normalize(vmin=0.0, vmax=np.max(im_cub_arr[79]))
 
@@ -185,7 +178,6 @@ cbar8 = fig8.colorbar(img7, ax=ax8)
 cbar8.set_label("Im{$u(x,y,t=0.002)$}", fontsize=fontsize)
 cbar8.ax.tick_params(labelsize=fontsize)
 fig8.tight_layout()
-fig8.savefig('map_imag_t002.pdf')
 
 norm9 = matplotlib.cm.colors.Normalize(vmin=0.0, vmax=np.max(re_cub_arr[0]))
 
@@ -197,7 +189,6 @@ cbar9 = fig9.colorbar(img9, ax=ax9)
 cbar9.set_label("Re{$u(x,y,t=0)$}", fontsize=fontsize)
 cbar9.ax.tick_params(labelsize=fontsize)
 fig9.tight_layout()
-fig9.savefig('map_real_t0.pdf')
 
 norm10 = matplotlib.cm.colors.Normalize(vmin=0.0, vmax=np.max(re_cub_arr[40]))
 
@@ -209,7 +200,6 @@ cbar10 = fig10.colorbar(img10, ax=ax10)
 cbar10.set_label("Re{$u(x,y,t=0.001)$}", fontsize=fontsize)
 cbar10.ax.tick_params(labelsize=fontsize)
 fig10.tight_layout()
-fig10.savefig('map_real_t0.001.pdf')
 
 norm11 = matplotlib.cm.colors.Normalize(vmin=0.0, vmax=np.max(re_cub_arr[79]))
 
@@ -221,7 +211,6 @@ cbar11 = fig11.colorbar(img11, ax=ax11)
 cbar11.set_label("Re{$u(x,y,t=0.002)$}", fontsize=fontsize)
 cbar11.ax.tick_params(labelsize=fontsize)
 fig11.tight_layout()
-fig11.savefig('map_real_t0.002.pdf')
 
 anim = FuncAnimation(fig, animation, interval=1, frames=np.arange(0, len(z_data_list), 2), repeat=False, blit=0)
 # Use matplotlib.animation.FuncAnimation to put it all together
@@ -230,4 +219,4 @@ anim = FuncAnimation(fig, animation, interval=1, frames=np.arange(0, len(z_data_
 plt.show()
 
 # # Save the animation
-anim.save('./animation_triple_slit.mp4', writer="ffmpeg", bitrate=-1, fps=30)
+anim.save('./animation.mp4', writer="ffmpeg", bitrate=-1, fps=30)
